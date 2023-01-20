@@ -1,0 +1,14 @@
+body {
+  background-color: #7A9DC5;
+
+}
+
+.App {
+  text-align: center;
+}
+
+.blue {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+}
