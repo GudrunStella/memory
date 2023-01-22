@@ -44,20 +44,10 @@ const Card: FC<CardProps> = ({
     children,
     cardClass,
     ...otherProps }) => {
-    const [isClicked, setIsClicked] = useState(false);
-    const [clickLength, setClickLength] = useState([]);
     let SelectedCard = getCard(cardClass);
-    const handleChange = () => {
-        clickLength.length += 1;
-        setIsClicked(clicked => !clicked)
-        if (clickLength.length === 2) {
-            setClickLength([]);
-            setIsClicked(false)
-        }
-    }
 
     return (
-        <SelectedCard isClicked={isClicked} {...otherProps}>
+        <SelectedCard  {...otherProps}>
             {children}
         </SelectedCard>
     )

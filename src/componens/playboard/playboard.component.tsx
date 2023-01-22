@@ -1,8 +1,7 @@
-import { ButtonHTMLAttributes, FC, useState } from 'react'
+import { ButtonHTMLAttributes, FC, useContext, useState } from 'react'
 import Card, { CARD_CLASSES } from "../card/card.component";
 import { CardsContainer, CardsRow, Board, NavBar, ResetButton, HeadText } from "./playboard.styles";
-
-
+import { GameContext } from '../../contexts/game.context';
 /* Array to initialize the cards */
 let cardClassArray = [
     CARD_CLASSES.black,
@@ -53,7 +52,6 @@ const PlayBoard: FC<PlayBoardProps> = () => {
     let [prevState, setPrevState] = useState(0); //last index that was clicked
     let [accumlator, setAccumlator] = useState(0); //accumlator 
 
-
     /*Handles the card flipping, updates score */
     const handleChange = (index: number) => {
         clicks[index] = true;
@@ -77,12 +75,15 @@ const PlayBoard: FC<PlayBoardProps> = () => {
             }
             count = 0;
         }
+
         setClicks(clicks);
         setScore(score)
         setAccumlator(accumlator);
         setCount(count);
         setPrevState(index);
     }
+
+
 
     /* reloads the game and cards get shuffled */
     const cardShuffle = () => {
