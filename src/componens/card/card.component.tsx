@@ -1,7 +1,7 @@
-import { FC, ButtonHTMLAttributes, useState } from 'react'
+import { FC, ButtonHTMLAttributes } from 'react'
 import { BackCard, YellowCard, RedCard, GreenCard, BlueCard, BlackCard, WhiteCard, PurpleCard, OrangeCard, PinkCard, LightGreenCard, BrownCard, LightBlueCard, FlipCard } from "./card.styles";
-import { GameContext } from '../../contexts/game.context';
-import { useContext } from 'react';
+
+
 
 export enum CARD_CLASSES {
     back = 'back',
@@ -39,7 +39,8 @@ const getCard = (cardClass = CARD_CLASSES.back): typeof BackCard =>
     [CARD_CLASSES.flip]: FlipCard
 }[cardClass]);
 
-type CardProps = { cardClass?: CARD_CLASSES, index: number, isClicked?: boolean } & ButtonHTMLAttributes<HTMLButtonElement>;
+
+type CardProps = { cardClass?: CARD_CLASSES } & ButtonHTMLAttributes<HTMLButtonElement>;
 const Card: FC<CardProps> = ({
     children,
     cardClass,

@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
+
+
 export const NavBar = styled.div`
     height: 50px;
     background-color: #0B64CC;
     justify-content: space-evenly;
 `;
+
 
 export const ResetButton = styled.button`
     width: 100px;
@@ -19,16 +22,19 @@ export const ResetButton = styled.button`
     font-weight: bold;
 `;
 
+
 export const CardsContainer = styled.div`
     display: block;
     margin-top: 1em;
 `;
+
 
 export const CardsRow = styled.div`
    justify-content: space-evenly;
    margin-left: 7em;
    
 `;
+
 
 export const Board = styled.div`
 `;
