@@ -54,35 +54,39 @@ const PlayBoard: FC<PlayBoardProps> = () => {
 
     /*Handles the card flipping, updates score */
     const handleChange = (index: number) => {
-        clicks[index] = true;
-        setClicks(clicks);
+
+        setPrevState(index);
 
         if (index !== prevState) {
             count += 1
             saveIndex.push(index);
-            setSaveIndex(saveIndex);
         }
-
+        if (count === 1) {
+            if (cardArray[saveIndex[accumlator]] === cardArray[saveIndex[accumlator + 1]]) {
+                score += 5;
+            } else {
+                score -= 1;
+            }
+        }
 
         if (count === 2) {
             if (cardArray[saveIndex[accumlator]] === cardArray[saveIndex[accumlator + 1]]) {
-                score += 5;
                 accumlator += 2;
-
+                setAccumlator(accumlator);
             } else {
-                score -= 1;
                 clicks[saveIndex[accumlator]] = false;
                 clicks[saveIndex[accumlator + 1]] = false;
                 saveIndex.splice(accumlator, 2);
-
             }
             count = 0;
-
         }
-        setScore(score)
-        setAccumlator(accumlator);
-        setPrevState(index);
+
+        clicks[index] = true;
+        setClicks(clicks);
         setCount(count);
+        setScore(score)
+        setSaveIndex(saveIndex);
+
     }
 
 
